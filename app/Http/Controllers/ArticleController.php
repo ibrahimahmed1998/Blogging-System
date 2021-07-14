@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    public function __construct() {  $this->middleware('auth:api', ['except' => ['']]); }
 
     public function control(Request $req)
     {

@@ -21,6 +21,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/create', function () {
+    return view('dashboard');
+});
+
+Route::get('/1', function () {
+    return view('test');
+});
+
+
 // Route::post('/add_user', function () {
 //     return view('welcome');
 // });
