@@ -10,6 +10,8 @@ use App\Http\Controllers\AUTH_USERS\Deep_search;
 use App\Http\Controllers\AUTH_USERS\Update_user; // test
 use App\Http\Controllers\AUTH_USERS\AuthController;
 use App\Http\Controllers\AUTH_USERS\Del_user;
+use App\Http\Controllers\CommentsController;
+
 /********************************************************/
 //use App\Http\Middleware\type_s;
 //use App\Http\Middleware\type_adv;
@@ -35,6 +37,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'],function ($router)
     Route::post('deep_search',Deep_search::class.'@deep_search');
     Route::post('article',ArticleController::class.'@control');
     Route::get('list',ArticleController::class.'@list');
+    Route::post('addcomment',CommentsController::class.'@control');
 
  });
 
