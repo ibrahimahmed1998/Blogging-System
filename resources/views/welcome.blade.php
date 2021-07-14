@@ -115,25 +115,19 @@
                     $.ajax({
                         url: "api/auth/login",
                         type: 'POST',
-                        data: {
-                            email: email1,
-                            password: pass
-                        },
+                        data: {  email: email1,     password: pass  },
 
-                        success: function(response) {
-                            console.log(response["token"]);
-
-
-                            alert('Login Successfully ^_^ ');
+                        success: function(response)
+                         {
+                            var  token = response["token"];
+                           localStorage.setItem('token', token );
 
 
+                           //alert('Login Successfully ^_^ ');
 
+                         //  window.location.href = '/create';
 
-                            localStorage.setItem('token', response["token"]);
-                            window.location.href = '/create';
-
-                            //var w = window.open('/create',"_self")
-                            //w.document.write("<p>I replaced the current window.</p>");
+                       window.open('/create',"_self")
 
                         },
 

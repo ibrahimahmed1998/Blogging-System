@@ -12,6 +12,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        < AccessToken ref = "request.header.Authorization:Bearer" / >
     </script>
 
 </head>
@@ -76,71 +77,75 @@
                             </div>
                         </div>
 
-<script type="text/javascript">
-    $('#submit').click(function(event) {
-        event.preventDefault();
+                        <script type="text/javascript">
+                            $('#submit').click(function(event) {
+                                event.preventDefault();
 
-        let title98 = $("input[id=title98]").val();
-        let body98 = $("textarea[id=body98]").val();
-        let _token = $('meta[name="csrf-token"]').attr('content');
-        let cat;
+                                let title98 = $("input[id=title98]").val();
+                                let body98 = $("textarea[id=body98]").val();
+                                //let csrf = $('meta[name="csrf-token"]').attr('content'); //         var token =  "{{ csrf_token() }}";
+                                //$.ajaxSetup({  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
 
-        if ($('input[id=flexRadioDefault1]').is(':checked')) {
-            cat = 1
-        }
-        if ($('input[id=flexRadioDefault2]').is(':checked')) {
-            cat = 2
-        }
-        var token =  "{{ csrf_token() }}";
+                                let cat;
+                                if ($('input[id=flexRadioDefault1]').is(':checked')) {
+                                    cat = 1
+                                }
+                                if ($('input[id=flexRadioDefault2]').is(':checked')) {
+                                    cat = 2
+                                }
 
-        console.log("cat is : "+cat);
-        console.log("token is: "+token);
+                                var token = localStorage.getItem("token");
 
-        $.ajaxSetup({  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
+                                $.ajax({
+                                    url: "api/auth/article",
+                                    type: 'POST', //contentType:'application/json',
+                                    headers: {
+                                        'Authorization': `Bearer ${token}`
+                                    },
+                                    data: {
+                                        title: title98,
+                                        body: body98,
+                                        sub_title: "test",
+                                        category: cat,
+                                    },
 
-        $.ajax({
-            url: "api/auth/article",
-            type: 'POST',
-            beforeSend: function (xhr) {
-             xhr.setRequestHeader('Authorization', 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYyNjI3NTM0OCwiZXhwIjoxNjI2Mjc4OTQ4LCJuYmYiOjE2MjYyNzUzNDgsImp0aSI6Ims0dmxLcG5oUHJVUTVrTTQiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.FkvIlYRa49PmwwPAcugt-TIABmTIykJhPMkM7Qv7i_A');
-             },
+                                    success: function(response) {
+                                        alert('Article Created Successfully ...');
+                                        console.log(response);
+                                    },
+                                    error: function(err) {
+                                        var x = JSON.stringify(err);
+                                        console.log(x);
+                                        alert(x);
+                                    }
+                                });
+                            });
 
-            data: {
-                title: title98,
-                body: body98,
-                sub_title: "test",
-                _token:token,
-                category: cat,
-            },
+                            $('#logout').click(function(event) {
+                                event.preventDefault();
+                                var token = localStorage.getItem("token");
 
+                                $.ajax({
+                                    url: "api/auth/logout",
+                                    type: 'POST', //contentType:'application/json',
+                                    headers: {
+                                        'Authorization': `Bearer ${token}`
+                                    },
 
-            success: function(response) {
-                // alert('Article Created Successfully ...');
-                console.log(response);
-            },
-            error: function(err) {
+                                    success: function(response) {
+                                        alert('Logout Successfully ...');
+                                        console.log(response);
+                                        window.location.href = '/';
 
-            var x = JSON.stringify(err);
-            console.log(x);
-            alert(x);
-            }
+                                    },
+                                    error: function(err) {
+                                        var x = JSON.stringify(err);
+                                        console.log(x);
+                                        alert(x);
+                                    }
+                                });
 
-        });
-    });
-
-    $('#logout').click(function(event) {
-        event.preventDefault();
-
-        let token = "0";
-
-        $.ajax({
-
-             success: function(response) {
-                 alert('Logout Successfully ...');
-                 window.location.href = '/';
-                 console.log(response);
-            }
-        });
-    });
-
-</script></body></html>
+                            });
+                        </script>
+</body>
+</html>
