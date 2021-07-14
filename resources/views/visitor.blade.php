@@ -109,7 +109,7 @@
 
                     var new_btn =document.createElement("button");
                         new_btn.setAttribute("class","btn btn-primary btn-lg") ;
-                        new_btn.setAttribute("id","send"+i) ;
+                        new_btn.setAttribute("id","send98") ;
                         new_btn.innerHTML="Send" ;
                         artdiv.appendChild(new_btn);
 
@@ -117,21 +117,21 @@
                         indiv.appendChild(bigdiv);
 
                     var x = document.getElementById("here").appendChild(div);
-
                 }
-                console.log(123);
+            },
+            error: function(response){ var x =JSON.stringify(response) ; alert(x); }  })
 
-                $('#send0').click(function(event)
+           // console.log(123);
+
+         $('#send98').click(function(event)
             {
-                console.log(456);
-
                 event.preventDefault();
+                console.log(123);
 
                 let body = $("textarea[id=txt98]").val();
 
                 if (body ==''){ alert("No Comment Here ! ") }
-                else
-                {
+
                 var token = localStorage.getItem("token");
 
                 $.ajax({
@@ -148,11 +148,5 @@
                         console.log(x);
                         alert(x);
                     } })
-
-                }
             })
-
-            },
-            error: function(response){ var x =JSON.stringify(response) ; alert(x); }  })
-
- </script></body></html>
+</script></body></html>

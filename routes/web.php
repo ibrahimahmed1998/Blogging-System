@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/public/css/{article.css?}', function ()
+{
+    return view('signup');
+});
+
 Route::get('/s', function ()
 {
     return view('signup');
@@ -28,6 +33,10 @@ Route::get('/create', function () {
 Route::get('/1', function () {
     return view('test');
 });
+
+// Route::get('/public/css/article.css ', function () {
+//     return view('public/css/article.css ');
+// });
 
 
 // Route::post('/add_user', function () {

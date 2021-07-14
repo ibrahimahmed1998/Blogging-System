@@ -34,7 +34,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'],function ($router)
     Route::post('me', AuthController::class . '@me');
     Route::post('deep_search',Deep_search::class.'@deep_search');
     Route::post('article',ArticleController::class.'@control');
-
+    Route::get('list',ArticleController::class.'@list');
 
  });
 

@@ -77,75 +77,71 @@
                             </div>
                         </div>
 
-                        <script type="text/javascript">
-                            $('#submit').click(function(event) {
-                                event.preventDefault();
+    <script type="text/javascript">
+        $('#submit').click(function(event){
+            event.preventDefault();
 
-                                let title98 = $("input[id=title98]").val();
-                                let body98 = $("textarea[id=body98]").val();
-                                //let csrf = $('meta[name="csrf-token"]').attr('content'); //         var token =  "{{ csrf_token() }}";
-                                //$.ajaxSetup({  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
+            let title98 = $("input[id=title98]").val();
+            let body98 = $("textarea[id=body98]").val();
 
-                                let cat;
-                                if ($('input[id=flexRadioDefault1]').is(':checked')) {
-                                    cat = 1
-                                }
-                                if ($('input[id=flexRadioDefault2]').is(':checked')) {
-                                    cat = 2
-                                }
+            //let csrf = $('meta[name="csrf-token"]').attr('content'); //         var token =  "{{ csrf_token() }}";
+            //$.ajaxSetup({  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
 
-                                var token = localStorage.getItem("token");
+            let cat;
+            if ($('input[id=flexRadioDefault1]').is(':checked')) {
+                cat = 1
+            }
+            if ($('input[id=flexRadioDefault2]').is(':checked')) {
+                cat = 2
+            }
 
-                                $.ajax({
-                                    url: "api/auth/article",
-                                    type: 'POST', //contentType:'application/json',
-                                    headers: {
-                                        'Authorization': `Bearer ${token}`
-                                    },
-                                    data: {
-                                        title: title98,
-                                        body: body98,
-                                        sub_title: "test",
-                                        category: cat,
-                                    },
+            var token = localStorage.getItem("token");
 
-                                    success: function(response) {
-                                        alert('Article Created Successfully ...');
-                                        console.log(response);
-                                    },
-                                    error: function(err) {
-                                        var x = JSON.stringify(err);
-                                        console.log(x);
-                                        alert(x);
-                                    }
-                                });
-                            });
+            $.ajax({
+                url: "api/auth/article",
+                type: 'POST', //contentType:'application/json',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                },
+                data: {
+                    title: title98,
+                    body: body98,
+                    sub_title: "test",
+                    category: cat,
+                },
 
-                            $('#logout').click(function(event) {
-                                event.preventDefault();
-                                var token = localStorage.getItem("token");
+                success: function(response) {
+                    alert('Article Created Successfully ...');
+                    console.log(response);
+                },
+                error: function(err) {
+                    var x = JSON.stringify(err);
+                    console.log(x);
+                    alert(x);
+                }
+            });
+        });
 
-                                $.ajax({
-                                    url: "api/auth/logout",
-                                    type: 'POST', //contentType:'application/json',
-                                    headers: {
-                                        'Authorization': `Bearer ${token}`
-                                    },
+        $('#logout').click(function(event) {
+            event.preventDefault();
+            var token = localStorage.getItem("token");
 
-                                    success: function(response) {
-                                        alert('Logout Successfully ...');
-                                        console.log(response);
-                                        window.location.href = '/';
+            $.ajax({
+                url: "api/auth/logout",
+                type: 'POST', //contentType:'application/json',
+                headers: { 'Authorization': `Bearer ${token}` },
 
-                                    },
-                                    error: function(err) {
-                                        var x = JSON.stringify(err);
-                                        console.log(x);
-                                        alert(x);
-                                    }
-                                });
+                success: function(response) {
+                    alert('Logout Successfully ...');
+                    console.log(response);
+                    window.location.href = '/';
 
-                            });
-                        </script>
-</body>
-</html>
+                },
+                error: function(err) {
+                    var x = JSON.stringify(err);
+                    console.log(x);
+                    alert(x);
+                }
+            });
+        });
+</script></body></html>

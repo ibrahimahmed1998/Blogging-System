@@ -22,4 +22,17 @@ class ArticleController extends Controller
 
         return response()->json(['success'=>$art]);
     }
+
+    public function list()
+    {
+        $all = Article::all();
+        $arr = [] ;
+       // dd($all);
+        for ($i=0; $i < sizeof($all); $i++)
+        {
+            $arr[] = $all[$i] ;
+        }
+
+        return  $arr ;
+    }
 }
