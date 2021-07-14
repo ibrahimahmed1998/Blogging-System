@@ -27,35 +27,25 @@ class Login extends Controller
     {
         $test_database=User::first();
 
-        if(!$test_database)
-        {
-            $root = User::create(['id' => 1,'fname' =>'Ibrahim','lname' =>'Ahmed','password' => 12345678,'email' => 'hema.1998.man@gmail.com','type' => 1 , 'phone' => "01207053244" , 'created_at'=>now() ]);
-            return response()->json(['Root User'=> $root  ]);
+        if(!$test_database){
+                $root = User::create(['id' => 1,'fname' =>'Ibrahim','lname' =>'Ahmed','password' => 12345678,'email' => 'hema.1998.man@gmail.com','type' => 1 , 'phone' => "01207053244" , 'created_at'=>now() ]);
+                return response()->json(['Root User'=> $root  ]);
         }
 
         $req->validate(['email' => 'required|email:rfc,dns', 'password' => 'required|min:8']);
         $credentials = $req->only('email', 'password');
 
-        if ($token = auth()->attempt($credentials))
-         {
-            $this->respondWithToken($token);
+        if ($token = auth()->attempt($credentials)){
+                $this->respondWithToken($token);
 
-            $user = auth()->user();
+                $user = auth()->user();
 
-            return response()->json(
-                [
-                    "token" => $token,
-                    "id" => auth()->user()->id,
-                    "first_name" => $user->first_name,
-                    "last_name" => $user->last_name,
-                    "phone" => $user->phone,
-                    "email" => $user->email,
-                    'type' =>  $user->type,
-                ]
-            );
-        } else
-        {
-            return response()->json(['err' => "Wrong Credintials , Try a valid E-mail or password"], 401);
+                return response()->json([
+                        "token" => $token,    //  "id" => auth()->user()->id,
+                        "fname" => $user->fname,     "lname" => $user->lname,
+                        "phone" => $user->phone,
+                    //  "email" => $user->email,    //  'type' =>  $user->type,
+                ]);
         }
-    }
-}
+        else{ return response()->json(['err' => "Wrong Credintials ,Try a valid E-mail or password"], 401);}
+    }}
