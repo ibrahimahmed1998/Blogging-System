@@ -43,8 +43,9 @@ class Login extends Controller
                 return response()->json([
                         "token" => $token,    //  "id" => auth()->user()->id,
                         "fname" => $user->fname,     "lname" => $user->lname,
-                        "phone" => $user->phone,
-                    //  "email" => $user->email,    //  'type' =>  $user->type,
+                        //"phone" => $user->phone,
+                    //  "email" => $user->email,
+                      'type' =>  $user->type,
                 ]);
         }
         else{ return response()->json(['err' => "Wrong Credintials ,Try a valid E-mail or password"], 401);}

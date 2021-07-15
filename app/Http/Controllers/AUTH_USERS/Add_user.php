@@ -11,5 +11,5 @@ class Add_user extends Controller{
                      'lname' => $req->lname,'password' => $req->password,'email' => $req->email,
                      'type' => 2, 'phone' => $req->phone, 'created_at'=>now() ]);
 
-       return response()->json(['success' => 'joins...AMS'], 201);
+       return response()->json(['success' => 'joined ... '], 201);
 }}
