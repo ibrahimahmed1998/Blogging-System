@@ -38,6 +38,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'],function ($router)
     Route::post('article',ArticleController::class.'@control');
     Route::get('list',ArticleController::class.'@list');
     Route::post('addcomment',CommentsController::class.'@control');
+    Route::post('listcomments',CommentsController::class.'@list');
 
  });
 

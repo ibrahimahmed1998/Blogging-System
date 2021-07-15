@@ -20,4 +20,17 @@ class CommentsController extends Controller
         return response()->json(['success'=>$comments]);
     }
 
+    public function list(Request $req)
+    {
+       $arr = [];
+       $comments =  Comment::all();
+
+       for ($i = 0; $i < sizeof($comments); $i++)
+       {
+           $arr[] = $comments[$i];
+       }
+
+       return  $arr;
+
+    }
 }

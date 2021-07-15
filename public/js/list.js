@@ -52,6 +52,17 @@ function list() {
                 anc.innerHTML = "Comment"        ////////////////////
                 bigdiv.appendChild(anc);
 
+                var anc2 = document.createElement("a");
+                anc2.setAttribute("id", arr[i].id+"x");
+                anc2.setAttribute("class", "btn btn-outline-info");
+                anc2.setAttribute("data-bs-toggle", "collapse");
+                anc2.setAttribute("href", "#collapseExample" + i +"x");
+                anc2.setAttribute("role", "button");
+                anc2.setAttribute("aria-expanded", "false");
+                anc2.setAttribute("aria-controls", "collapseExample" + i +"x");
+                anc2.innerHTML = "Show Comment"        ////////////////////
+                bigdiv.appendChild(anc2);
+
                 var smalldiv = document.createElement("div");
                 smalldiv.setAttribute("class", "collapse");
                 smalldiv.setAttribute("id", "collapseExample" + i);

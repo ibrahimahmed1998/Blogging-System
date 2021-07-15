@@ -36,7 +36,7 @@ class ArticleController extends Controller
     {
         $all = Article::all();
         $arr = [];
-        // dd($all);
+
         for ($i = 0; $i < sizeof($all); $i++) {
             $arr[] = $all[$i];
         }
