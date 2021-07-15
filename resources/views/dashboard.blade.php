@@ -52,7 +52,18 @@
 
     $('#submit').click(function(event) {  event.preventDefault();
 
-        let title = $("input[id=title98]").val(); let body = $("textarea[id=body98]").val(); let sub_title = " until test ";
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        if(today.getHours() > 12)
+        {
+            hours = ( today.getHours() - 12 );
+        }
+        var time = hours + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+        var sub_title =  date+" "+time ;
+
+
+        let title = $("input[id=title98]").val(); let body = $("textarea[id=body98]").val();
 
         if (title == "" || body == "") {   alert("Title and Body required") }
         else{

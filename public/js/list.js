@@ -30,7 +30,7 @@ function list() {
 
                 var h6 = document.createElement("h6");
                 h6.setAttribute("class", "card-subtitle mb-2 text-muted");
-                h6.innerHTML = "test";     ////////////////////
+                h6.innerHTML = arr[i].sub_title;     ////////////////////
                 indiv.appendChild(h6);
 
                 var p = document.createElement("p");
@@ -60,7 +60,7 @@ function list() {
                 anc2.setAttribute("role", "button");
                 anc2.setAttribute("aria-expanded", "false");
                 anc2.setAttribute("aria-controls", "collapseExample" + i +"x");
-                anc2.innerHTML = "Show Comment"        ////////////////////
+                anc2.innerHTML = "Show Comments"        ////////////////////
                 bigdiv.appendChild(anc2);
 
                 var smalldiv = document.createElement("div");
