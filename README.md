@@ -29,8 +29,9 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
  <li> in .env file configre database variables   </li>
  <li> run command :<b > php artisan migrate</b>  </li>
     <li>  run command : <b >php artisan serve</b>   </li>
+    <li> You can use <b>Root User</b> " as Admin -> E-mail= hema.1998.man@gmail.com && Password = 12345678 OR Add User To System As Visitor Type </li>
  </ul>
- 
+           
 ## Compeleted
  <img src="database.png">
  <img src="main.png">
