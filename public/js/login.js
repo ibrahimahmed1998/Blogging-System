@@ -16,8 +16,6 @@ function login(email, password) {
             if (type == 1) { window.location.href = '/admin'; }
             else if (type == 2) { window.location.href = '/visitor'; }
 
-
-
         },
         error: (err) => {
             var x = JSON.stringify(err);

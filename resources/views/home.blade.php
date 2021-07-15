@@ -41,8 +41,9 @@
     $("#Name").html(`<a>Name: ${name}</a>`);
     $("#Type").html(`<a>Type: ${disply}</a>`);
 
-    if(token == null){     $("#logout").hide();}
-    else if(token != null){ $("#create").hide()  }
+    if(token == null){     $("#logout").hide();             $("#Name").hide();  $("#Type").hide();
+}
+    else if(token != null){ $("#create").hide()   }
 
     $('#mypanel').click(function(event){ event.preventDefault();
         if(type==1){ window.location.href = '/admin'; }

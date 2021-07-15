@@ -11,8 +11,8 @@
                     <li class="nav-item">
                         <a id="create" data-bs-toggle="collapse" class="nav-link" href="#collapseExample">Log-In</a> </li>
 
-                        <li class="nav-link" id="Name"> User Name</li>
-                        <li class="nav-link" id="Type"> User Type</li>
+                        <li class="nav-link" id="Name" > User Name</li>
+                        <li class="nav-link" id="Type" > User Type</li>
 
 
                         <li class="nav-item"> <a class="nav-link" id="#"  href="https://ibrahimahmed1998.github.io/QuickAccess/HTML/index.html">Useful Links</a> </li>

@@ -8,12 +8,18 @@ function logout(token) {
 
             localStorage.removeItem("token");
             localStorage.removeItem("type");
+            localStorage.removeItem("name");
 
             alert('Logout Successfully ...');
             window.location.href = '/';
 
         },
-        error: function (err) {
+        error: function (err){
+
+            localStorage.removeItem("token");
+            localStorage.removeItem("type");
+            localStorage.removeItem("name");
+
             var x = JSON.stringify(err);
             console.log(x);
             alert(x);
