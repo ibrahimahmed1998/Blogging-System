@@ -30,7 +30,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
  <li> run command :<b > php artisan migrate</b>  </li>
     <li>  run command : <b >php artisan serve</b>   </li>
  </ul>
+ 
 ## Compeleted
-
-<img src="main.png">
-<img src="list.png">
+ <img src="main.png">
+ <img src="list.png">
