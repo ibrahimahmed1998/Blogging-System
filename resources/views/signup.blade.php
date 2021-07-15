@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html><head><title>Register Forms</title>
+<!DOCTYPE html><html><head><title>Register Forms</title>
     <link href={{ 'regcss/main.css' }} rel="stylesheet" >
     <script src={{'vendor/jquery/jquery.min.js'}}></script>
-</head>
-<body>
+    <script src={{'js/signup.js'}}></script>
+</head><body>
     <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
         <div class="wrapper wrapper--w680">
             <div class="card card-4"> <div class="card-body">
                 <h2 class="title"><b>Registration Form</b></h2>
-                    <form>
-                        <div class="row row-space" style="margin-bottom:20px">
+                         <div class="row row-space" style="margin-bottom:20px">
                             <div class="col-2">
                                     <label class="label">first name</label>
                                     <input class="input--style-4" type="text" name="fname">
@@ -35,13 +33,10 @@
                             <button type="button" value="Submit" id="submit" class="btn btn--radius-2 btn--blue">Submit</button>
                             <button type="button" class="btn btn--radius-2 btn--blue"onclick="window.location.href='/'">back</button>
                         </div>
-                    </form>
-            </div></div></div></div>
+</div></div></div></div>
+<script type="text/javascript">
 
-    <script type="text/javascript">
-
-    $('#submit').click(function(event){
-        event.preventDefault();
+    $('#submit').click(function(event){  event.preventDefault();
 
         let fn = $("input[name=fname]").val();        let ln = $("input[name=lname]").val();
         let phone1 = $("input[name=phone]").val();    let email1 = $("input[name=email]").val();
@@ -53,15 +48,5 @@
         if (email1 == "") { alert("Name must be filled out");  return false;    }
         if (pass == "") { alert("Name must be filled out");  return false;    }
 
-    // $.ajaxSetup({  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
-
-        $.ajax({
-            url:  "api/auth/add_user"  ,
-            type: 'POST',
-            data:{ fname:fn,  lname:ln, phone:phone1,  email:email1, password:pass   },
-
-            success:function(response) {  alert('Joined Successfully ^_^ ') ;   var w = window.open('/')  },
-
-            error: function(response){ var x =JSON.stringify(response) ; alert(x); } })
-        })
+      signup(fn,ln,phone1,email1,pass); })
 </script></body></html>
