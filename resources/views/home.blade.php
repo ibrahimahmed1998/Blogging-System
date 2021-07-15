@@ -32,11 +32,17 @@
 </div></div></div>
 
 <script type="text/javascript">
-    var token = localStorage.getItem("token");  var type  = localStorage.getItem("type");
-    console.log(token);     console.log(type);
 
-    if(token == null){ $("#logout").hide(); }
+    var token=localStorage.getItem("token");  var type=localStorage.getItem("type");
+    var name=localStorage.getItem("name");
 
+    console.log(token);     console.log(type);  console.log(name);
+    if(type==1){disply="admin"}else {disply="visitor"}
+    $("#Name").html(`<a>Name: ${name}</a>`);
+    $("#Type").html(`<a>Type: ${disply}</a>`);
+
+
+    if(token == null){     $("#logout").hide();}
     else if(token != null){ $("#create").hide()  }
 
     $('#mypanel').click(function(event){ event.preventDefault();
@@ -44,6 +50,9 @@
         if(type==2){ window.location.href = '/visitor'; }  })
 
     $('#login').click(function(event){
+
+
+
         event.preventDefault();
         let email1 = $("input[name=email]").val();
         let pass = $("input[name=pass]").val();
