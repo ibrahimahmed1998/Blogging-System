@@ -25,10 +25,10 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
  <ul>
  <li> git clone https://github.com/ibrahimahmed1998/Blog-Demo </li>
  <li> open downloaded files with vscode terminal  </li>
- <li> open terminal and run command  :<b> composer install</b>  </li>
+ <li> open terminal and run command  :<b style="color:red"> composer install</b>  </li>
  <li> in .env file configre database variables   </li>
- <li> run command :<b> php artisan migrate</b>  </li>
-    <li>  run command : <b>php artisan serve</b>   </li>
+ <li> run command :<b style="color:red"> php artisan migrate</b>  </li>
+    <li>  run command : <b style="color:red">php artisan serve</b>   </li>
  </ul>
  ## Compeleted
 
