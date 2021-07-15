@@ -21,5 +21,16 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## How Install Blog System 
+ 
+ 1- git clone https://github.com/ibrahimahmed1998/Blog-Demo
+ 2- open downloaded files with vscode t
+ 3- open terminal and run command  : composer install
+ 4- in .env file configre database variables 
+ 5- run command : php artisan migrate
+ 6- run command : php artisan serve 
+ 
+ ## Compeleted
+
 <img src="main.png">
 <img src="list.png">
