@@ -41,7 +41,6 @@
     $("#Name").html(`<a>Name: ${name}</a>`);
     $("#Type").html(`<a>Type: ${disply}</a>`);
 
-
     if(token == null){     $("#logout").hide();}
     else if(token != null){ $("#create").hide()  }
 
