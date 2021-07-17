@@ -16,3 +16,5 @@ Route::get('/signup', function () {  return view('signup'); });
 Route::get('/admin', function () {  return view('dashboard'); });
 Route::get('/visitor', function () { return view('visitor'); });
 Route::post('/add_user', [Add_user::class, 'add_user']);
+
+Route::get('/load_comment', function() { return view('load_comment_view'); });

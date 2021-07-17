@@ -22,10 +22,16 @@ class CommentsController extends Controller
 
     public function list(Request $req)
     {
-       $arr = [];
-       $comments =  Comment::all();
+        $req->validate(['art_id' => 'required|integer|exists:Comments,articles_id']);
 
-       for ($i = 0; $i < sizeof($comments); $i++)
+       $arr = [];
+
+
+       $comments =  Comment::where('articles_id',$req->art_id)->get();
+       $size= $comments->count();
+
+
+       for ($i = 0; $i < $size ; $i++)
        {
            $arr[] = $comments[$i];
        }

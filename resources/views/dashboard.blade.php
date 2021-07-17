@@ -49,6 +49,7 @@
                             </div></div></div></div>
 <script type="text/javascript">
     var token = localStorage.getItem("token"); var cat;
+    if(!token) {  alert("Session Finished please login");  window.location.href = '/';    }
 
     $('#submit').click(function(event) {  event.preventDefault();
 
